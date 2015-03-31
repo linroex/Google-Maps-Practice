@@ -46,6 +46,14 @@
                 position: position,
                 map: map
             });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: "ABC安安你好"
+            });
+
+            google.maps.event.addListener(marker, 'click', function(){
+                infowindow.open(map, marker);
+            });
         }
         google.maps.event.addDomListener(window, 'load', map_init);
     </script>
