@@ -16,7 +16,13 @@
         function map_init() {
             var options = {
                 zoom: 10,
-                center: new google.maps.LatLng(-34, 150)
+                center: new google.maps.LatLng(-34, 150),
+                panControl: false,
+                zoomControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false
             };
 
             map = new google.maps.Map(document.getElementById('map'), options);
