@@ -21,6 +21,17 @@
 
             map = new google.maps.Map(document.getElementById('map'), options);
 
+            add_marker(-25.363882, 131.044922);
+        }
+
+        function add_marker(lat, lng) {
+            var location = new google.maps.LatLng(lat, lng);
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: '早安你好'
+            });
+            map.setCenter(location);
         }
 
         google.maps.event.addDomListener(window, 'load', map_init);
