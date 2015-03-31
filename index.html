@@ -13,6 +13,8 @@
     </style>
     <script>
         var map;
+        var geocoder;
+
         function map_init() {
             var options = {
                 zoom: 10,
@@ -20,7 +22,15 @@
             };
 
             map = new google.maps.Map(document.getElementById('map'), options);
+            geocoder = new google.maps.Geocoder();
 
+            geocoder.geocode({'address':'台中科技大學'}, function(results, status){
+                if(status == google.maps.GeocoderStatus.OK) {
+                    console.log(results);
+                    console.log("緯度",results[0].geometry.location.lat());
+                    console.log("經度",results[0].geometry.location.lng());
+                }
+            });
         }
 
         google.maps.event.addDomListener(window, 'load', map_init);
